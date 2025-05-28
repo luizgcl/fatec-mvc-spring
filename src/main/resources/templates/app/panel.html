@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <!--/*/ <th:block th:include="~{fragments/head :: head (pageTitle='Panel')}">
+    </th:block>  /*/-->
+</head>
+<body class="bg-surface-50">
+    <nav class="py-4 px-8 bg-white/80 shadow-lg flex items-center justify-between z-10 backdrop-blur">
+        <h1 class="text-3xl md:text-4xl font-black text-primary flex items-center gap-2">
+            <img th:src="@{/images/LogoFarmed.png}" alt="Logo" class="w-10 h-10 rounded-full shadow-md border-2 border-primary" />
+            <span>Far<span class="text-accent">med</span></span>
+        </h1>
+        <a class="bg-accent text-white rounded-full px-6 py-2 text-lg font-semibold shadow-md hover:bg-accent-hover transition-all duration-200 transform hover:scale-105 select-none cursor-pointer"
+           th:href="@{/}">
+            Voltar ao Início
+        </a>
+    </nav>
+    <main class="max-w-3xl mx-auto mt-16 flex flex-col gap-8 items-center">
+        <h2 class="text-2xl md:text-3xl font-bold text-primary text-center mb-4">Bem-vindo ao Painel Administrativo</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 w-full">
+            <a th:href="@{/categorias/gerenciar}" class="flex flex-col items-center bg-white rounded-xl shadow-md p-8 hover:scale-105 transition group">
+                <svg class="w-12 h-12 text-primary mb-3 group-hover:text-accent transition" fill="none" stroke="currentColor" stroke-width="2">
+                    <use href="#beaker" />
+                </svg>
+                <span class="font-semibold text-primary group-hover:text-accent transition">Gerenciar Categoria</span>
+            </a>
+            <a th:href="@{/medicamentos/gerenciar}" class="flex flex-col items-center bg-white rounded-xl shadow-md p-8 hover:scale-105 transition group">
+                <svg class="w-12 h-12 text-primary mb-3 group-hover:text-accent transition" fill="none" stroke="currentColor" stroke-width="2">
+                    <use href="#fire" />
+                </svg>
+                <span class="font-semibold text-primary group-hover:text-accent transition">Gerenciar Medicamento</span>
+            </a>
+            <a th:href="@{/equipamentos/gerenciar}" class="flex flex-col items-center bg-white rounded-xl shadow-md p-8 hover:scale-105 transition group">
+                <svg class="w-12 h-12 text-primary mb-3 group-hover:text-accent transition" fill="none" stroke="currentColor" stroke-width="2">
+                    <use href="#wrench-screwdriver" />
+                </svg>
+                <span class="font-semibold text-primary group-hover:text-accent transition">Gerenciar Equipamento</span>
+            </a>
+        </div>
+    </main>
+    <!-- Heroicons SVG symbols -->
+    <svg style="display:none;">
+        <symbol id="beaker" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round"
+                d="M19.428 15.341A8 8 0 016.343 4.572M16 8V3m0 0H8m8 0v5m0 0a8 8 0 01-8 8" />
+        </symbol>
+        <symbol id="fire" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round"
+                d="M16.7 7.7C15.6 6.6 14.1 6 12.5 6c-1.6 0-3.1.6-4.2 1.7C6.1 8.8 5.5 10.3 5.5 11.9c0 2.2 1.8 4 4 4s4-1.8 4-4c0-1.6-.6-3.1-1.7-4.2z" />
+        </symbol>
+        <symbol id="wrench-screwdriver" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round"
+            d="M15.232 5.232a3 3 0 104.243 4.243l-4.95 4.95a2.121 2.121 0 01-3 0l-2.121-2.122a2.121 2.121 0 010-3l4.95-4.95zm-6.364 6.364l-2.122 2.122a3 3 0 104.243 4.243l4.95-4.95a2.121 2.121 0 000-3l-2.121-2.122a2.121 2.121 0 00-3 0z" />
+        </symbol>
+    </svg>
+</body>
+</html>
