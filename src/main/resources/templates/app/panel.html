@@ -20,19 +20,19 @@
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8 w-full">
             <a th:href="@{/categorias/gerenciar}" class="flex flex-col items-center bg-white rounded-xl shadow-md p-8 hover:scale-105 transition group">
                 <svg class="w-12 h-12 text-primary mb-3 group-hover:text-accent transition" fill="none" stroke="currentColor" stroke-width="2">
-                    <use href="#beaker" />
+                    <use href="#tag" />
                 </svg>
                 <span class="font-semibold text-primary group-hover:text-accent transition">Gerenciar Categoria</span>
             </a>
             <a th:href="@{/medicamentos/gerenciar}" class="flex flex-col items-center bg-white rounded-xl shadow-md p-8 hover:scale-105 transition group">
                 <svg class="w-12 h-12 text-primary mb-3 group-hover:text-accent transition" fill="none" stroke="currentColor" stroke-width="2">
-                    <use href="#fire" />
+                    <use href="#capsule" />
                 </svg>
                 <span class="font-semibold text-primary group-hover:text-accent transition">Gerenciar Medicamento</span>
             </a>
             <a th:href="@{/equipamentos/gerenciar}" class="flex flex-col items-center bg-white rounded-xl shadow-md p-8 hover:scale-105 transition group">
                 <svg class="w-12 h-12 text-primary mb-3 group-hover:text-accent transition" fill="none" stroke="currentColor" stroke-width="2">
-                    <use href="#wrench-screwdriver" />
+                    <use href="#stethoscope" />
                 </svg>
                 <span class="font-semibold text-primary group-hover:text-accent transition">Gerenciar Equipamento</span>
             </a>
@@ -40,17 +40,17 @@
     </main>
     <!-- Heroicons SVG symbols -->
     <svg style="display:none;">
-        <symbol id="beaker" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round"
-                d="M19.428 15.341A8 8 0 016.343 4.572M16 8V3m0 0H8m8 0v5m0 0a8 8 0 01-8 8" />
+        <symbol id="tag" viewBox="0 0 28 28">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9.568 3H5.25A2.25 2.25 0 0 0 3 5.25v4.318c0 .597.237 1.17.659 1.591l9.581 9.581c.699.699 1.78.872 2.607.33a18.095 18.095 0 0 0 5.223-5.223c.542-.827.369-1.908-.33-2.607L11.16 3.66A2.25 2.25 0 0 0 9.568 3Z" />
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 6h.008v.008H6V6Z" />
         </symbol>
-        <symbol id="fire" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round"
-                d="M16.7 7.7C15.6 6.6 14.1 6 12.5 6c-1.6 0-3.1.6-4.2 1.7C6.1 8.8 5.5 10.3 5.5 11.9c0 2.2 1.8 4 4 4s4-1.8 4-4c0-1.6-.6-3.1-1.7-4.2z" />
+        <symbol id="capsule" viewBox="0 0 28 28">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M1.828 8.9 8.9 1.827a4 4 0 1 1 5.657 5.657l-7.07 7.071A4 4 0 1 1 1.827 8.9Zm9.128.771 2.893-2.893a3 3 0 1 0-4.243-4.242L6.713 5.429z"/>
         </symbol>
-        <symbol id="wrench-screwdriver" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round"
-            d="M15.232 5.232a3 3 0 104.243 4.243l-4.95 4.95a2.121 2.121 0 01-3 0l-2.121-2.122a2.121 2.121 0 010-3l4.95-4.95zm-6.364 6.364l-2.122 2.122a3 3 0 104.243 4.243l4.95-4.95a2.121 2.121 0 000-3l-2.121-2.122a2.121 2.121 0 00-3 0z" />
+        <symbol id="stethoscope" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M5 4v6a7 7 0 0 0 14 0V4"/>
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 17v1a3 3 0 0 0 6 0v-1"/>
+            <circle cx="18" cy="17" r="1" />
         </symbol>
     </svg>
 </body>
