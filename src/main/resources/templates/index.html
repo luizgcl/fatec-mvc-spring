@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+
 <head>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -7,13 +8,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Farmed - Início</title>
     <link rel="icon" type="image/png" th:href="@{/images/LogoFarmed.png}" />
-    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script src="https://unpkg.com/heroicons@2.0.18/dist/24/outline.js"></script>
     <style type="text/tailwindcss">
         * {
             font-family: Raleway, sans-serif;
         }
-
         @theme {
             --color-primary-50: #8ADCFF;
             --color-primary: #3D9AC2;
@@ -22,39 +24,114 @@
         }
     </style>
 </head>
-<body class="bg-surface-50">
-    <nav class="top-0 sticky py-2 px-4 bg-primary-50 flex items-center justify-between">
-        <h1 class="text-6xl font-black text-primary">
+
+<body class="bg-gradient-to-br from-primary-50 via-white to-slate-100 min-h-screen">
+    <nav class="top-0 sticky py-4 px-8 bg-white/80 shadow-lg flex items-center justify-between z-10 backdrop-blur">
+        <h1 class="text-5xl md:text-6xl font-black text-primary flex items-center gap-2">
+            <img th:src="@{/images/LogoFarmed.png}" alt="Logo"
+                class="w-12 h-12 rounded-full shadow-md border-2 border-primary" />
             Far<span class="text-accent">med</span>
         </h1>
-        <a class="text-xl font-medium select-none cursor-pointer hover:text-accent" th:href="@{/auth/login}">
-            Área Administrativa
+        <a class="bg-accent text-white rounded-full px-6 py-2 text-lg md:text-xl font-semibold shadow-md hover:bg-accent-hover transition-all duration-200 transform hover:scale-105 select-none cursor-pointer"
+            th:href="@{/auth/login}">
+            Entrar
         </a>
     </nav>
-    <section id="hero" class="flex mb-6">
-        <img 
-            th:src="@{/images/pharmacy.png}"
-            alt="Imagem de uma farmácia"
-            class="w-1/2"
-        />
-        <div class="flex-1 w-1/2 p-6 flex flex-col gap-8 items-center justify-center bg-slate-200">
-            <h2 class="text-3xl font-bold text-accent">Sua farmácia online com entrega rápida e segura.</h2>
-            <p class="text-xl">
-                Compre medicamentos e equipamentos de saúde para sua empresa.<br> 
+    <section id="hero"
+        class="flex flex-col md:flex-row items-center justify-center gap-8 my-12 mx-auto max-w-5xl bg-white/90 rounded-3xl shadow-2xl p-8">
+        <img th:src="@{/images/pharmacy.png}" alt="Imagem de uma farmácia"
+            class="w-full md:w-1/2 rounded-2xl shadow-lg object-cover" />
+        <div class="flex-1 w-full md:w-1/2 flex flex-col gap-8 items-center justify-center">
+            <h2 class="text-3xl md:text-4xl font-bold text-accent text-center drop-shadow">Sua farmácia online com
+                entrega rápida e segura.</h2>
+            <p class="text-lg md:text-xl text-center text-slate-700">
+                Compre medicamentos e equipamentos de saúde para sua empresa.<br>
                 Receba no mesmo dia, com toda a confiança que você merece.
             </p>
             <footer>
-                <button class="bg-accent text-white rounded px-4 py-2 cursor-pointer text-xl hover:bg-accent-hover">
+                <button
+                    class="bg-accent text-white rounded-full px-8 py-3 cursor-pointer text-lg md:text-xl font-semibold shadow-lg hover:bg-accent-hover transition-all duration-200 transform hover:scale-105">
                     Ver Produtos
                 </button>
             </footer>
         </div>
     </section>
-    <section>
-        <h2 class="text-2xl font-bold text-primary text-center">Categorias em Destaque</h2>
+    <section class="my-12">
+        <h2 class="text-2xl md:text-3xl font-bold text-primary text-center mb-8 flex items-center justify-center gap-2">
+            <svg class="w-8 h-8 text-accent" fill="none" stroke="currentColor" stroke-width="2">
+                <use href="#star" />
+            </svg>
+            Categorias em Destaque
+        </h2>
+        <div class="flex flex-wrap justify-center gap-8">
+            <div class="flex flex-col items-center bg-white rounded-xl shadow-md p-6 w-48 hover:scale-105 transition">
+                <svg class="w-10 h-10 text-primary mb-2" fill="none" stroke="currentColor" stroke-width="2">
+                    <use href="#beaker" />
+                </svg>
+                <span class="font-semibold text-primary">Medicamentos</span>
+            </div>
+            <div class="flex flex-col items-center bg-white rounded-xl shadow-md p-6 w-48 hover:scale-105 transition">
+                <svg class="w-10 h-10 text-primary mb-2" fill="none" stroke="currentColor" stroke-width="2">
+                    <use href="#heart" />
+                </svg>
+                <span class="font-semibold text-primary">Saúde</span>
+            </div>
+            <div class="flex flex-col items-center bg-white rounded-xl shadow-md p-6 w-48 hover:scale-105 transition">
+                <svg class="w-10 h-10 text-primary mb-2" fill="none" stroke="currentColor" stroke-width="2">
+                    <use href="#user-group" />
+                </svg>
+                <span class="font-semibold text-primary">Bem-estar</span>
+            </div>
+        </div>
     </section>
-    <section>
-        <h2 class="text-2xl font-bold text-primary text-center">Medicamentos em Destaque</h2>
+    <section class="my-12">
+        <h2 class="text-2xl md:text-3xl font-bold text-primary text-center mb-8 flex items-center justify-center gap-2">
+            <svg class="w-8 h-8 text-accent" fill="none" stroke="currentColor" stroke-width="2">
+                <use href="#fire" />
+            </svg>
+            Medicamentos em Destaque
+        </h2>
+        <div class="flex flex-wrap justify-center gap-8">
+            <div class="bg-white rounded-xl shadow-md p-6 w-64 hover:scale-105 transition flex flex-col items-center">
+                <img th:src="@{/images/remedio1.png}" alt="Remédio 1" class="w-20 h-20 mb-2 object-contain" />
+                <span class="font-semibold text-primary">Paracetamol 500mg</span>
+                <span class="text-accent font-bold mt-2">R$ 12,90</span>
+            </div>
+            <div class="bg-white rounded-xl shadow-md p-6 w-64 hover:scale-105 transition flex flex-col items-center">
+                <img th:src="@{/images/remedio2.png}" alt="Remédio 2" class="w-20 h-20 mb-2 object-contain" />
+                <span class="font-semibold text-primary">Dipirona 1g</span>
+                <span class="text-accent font-bold mt-2">R$ 9,90</span>
+            </div>
+            <div class="bg-white rounded-xl shadow-md p-6 w-64 hover:scale-105 transition flex flex-col items-center">
+                <img th:src="@{/images/remedio3.png}" alt="Remédio 3" class="w-20 h-20 mb-2 object-contain" />
+                <span class="font-semibold text-primary">Vitamina C 1g</span>
+                <span class="text-accent font-bold mt-2">R$ 15,90</span>
+            </div>
+        </div>
     </section>
+    <!-- Heroicons SVG symbols -->
+    <svg style="display:none;">
+        <symbol id="star" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round"
+                d="M12 17.25l-6.172 3.245 1.179-6.873L2 9.755l6.914-1.004L12 2.25l3.086 6.501L22 9.755l-5.007 4.867 1.179 6.873z" />
+        </symbol>
+        <symbol id="beaker" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round"
+                d="M19.428 15.341A8 8 0 016.343 4.572M16 8V3m0 0H8m8 0v5m0 0a8 8 0 01-8 8" />
+        </symbol>
+        <symbol id="heart" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round"
+                d="M12 21C12 21 4 13.5 4 8.5C4 5.5 6.5 3 9.5 3C11.24 3 12.91 4.06 13.44 5.68C13.97 4.06 15.64 3 17.5 3C20.5 3 23 5.5 23 8.5C23 13.5 15 21 15 21H12Z" />
+        </symbol>
+        <symbol id="user-group" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round"
+                d="M17 20h5v-2a4 4 0 00-3-3.87M9 20H4v-2a4 4 0 013-3.87M12 12a4 4 0 100-8 4 4 0 000 8zm6 8v-2a4 4 0 00-3-3.87M6 20v-2a4 4 0 013-3.87" />
+        </symbol>
+        <symbol id="fire" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round"
+                d="M16.7 7.7C15.6 6.6 14.1 6 12.5 6c-1.6 0-3.1.6-4.2 1.7C6.1 8.8 5.5 10.3 5.5 11.9c0 2.2 1.8 4 4 4s4-1.8 4-4c0-1.6-.6-3.1-1.7-4.2z" />
+        </symbol>
+    </svg>
 </body>
+
 </html>
