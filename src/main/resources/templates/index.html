@@ -1,28 +1,7 @@
 <!DOCTYPE html>
 <html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
 
-<head>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Farmed - Início</title>
-    <link rel="icon" type="image/png" th:href="@{/images/LogoFarmed.png}" />
-    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
-        rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <script src="https://unpkg.com/heroicons@2.0.18/dist/24/outline.js"></script>
-    <style type="text/tailwindcss">
-        * {
-            font-family: Raleway, sans-serif;
-        }
-        @theme {
-            --color-primary-50: #8ADCFF;
-            --color-primary: #3D9AC2;
-            --color-accent: #FF6B48;
-            --color-accent-hover: #CF3915;
-        }
-    </style>
+<head th:replace="~{fragments/head :: head (pageTitle='Início')}">
 </head>
 
 <body class="bg-gradient-to-br from-primary-50 via-white to-slate-100 min-h-screen">
