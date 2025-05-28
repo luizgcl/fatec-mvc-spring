@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <title>Farmed - Login</title>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" th:href="@{/images/LogoFarmed.png}" />
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style type="text/tailwindcss">
+        * {
+            font-family: Raleway, sans-serif;
+        }
+
+        @theme {
+            --color-primary-50: #8ADCFF;
+            --color-primary: #3D9AC2;
+            --color-accent: #FF6B48;
+            --color-accent-hover: #CF3915;
+        }
+    </style>
+</head>
+
+<body class="bg-primary/10 flex items-center justify-center min-h-screen">
+  <div class="bg-white p-8 rounded-2xl shadow-xl w-full max-w-md border border-primary/20">
+    <h2 class="text-2xl font-bold text-primary text-center mb-6">Criar Conta</h2>
+
+    <form th:action="@{/auth/register}" th:object="${userDTO}" method="post" class="space-y-4">
+      <div>
+        <label for="nameUser" class="block text-sm font-medium text-primary">Nome de Usuário</label>
+        <input type="text" id="nameUser" th:field="*{nameUser}" name="nameUser" required
+               class="mt-1 block w-full px-4 py-2 border border-primary/30 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent focus:border-accent"
+               placeholder="Seu nome de usuário" />
+      </div>
+
+      <!-- E-mail do Usuário -->
+      <div>
+        <label for="emailUser" class="block text-sm font-medium text-primary">E-mail</label>
+        <input type="email" id="emailUser" th:field="*{emailUser}" name="emailUser" required
+               class="mt-1 block w-full px-4 py-2 border border-primary/30 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent focus:border-accent"
+               placeholder="exemplo@dominio.com" />
+      </div>
+
+      <!-- Senha -->
+      <div>
+        <label for="passwordUser" class="block text-sm font-medium text-primary">Senha</label>
+        <input type="password" id="passwordUser" th:field="*{passwordUser}" name="passwordUser" required
+               class="mt-1 block w-full px-4 py-2 border border-primary/30 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent focus:border-accent"
+               placeholder="••••••••" />
+      </div>
+
+      <!-- Botão -->
+      <button type="submit"
+              class="w-full bg-accent text-white py-2 px-4 rounded-lg hover:bg-accent-dark transition">
+        Cadastrar
+      </button>
+    </form>
+
+    <p class="text-sm text-center text-primary mt-4">
+      Já tem conta? <a th:href="@{/auth/login}" class="text-accent hover:underline">Entrar</a>
+    </p>
+  </div>
+</body>
+</html>

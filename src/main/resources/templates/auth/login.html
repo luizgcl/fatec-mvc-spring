@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <title>Farmed - Login</title>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" th:href="@{/images/LogoFarmed.png}" />
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style type="text/tailwindcss">
+        * {
+            font-family: Raleway, sans-serif;
+        }
+
+        @theme {
+            --color-primary-50: #8ADCFF;
+            --color-primary: #3D9AC2;
+            --color-accent: #FF6B48;
+            --color-accent-hover: #CF3915;
+        }
+    </style>
+</head>
+
+<body class="bg-primary/10 flex items-center justify-center h-screen">
+  <div class="bg-white p-8 rounded-2xl shadow-xl w-full max-w-sm border border-primary/20">
+    <h2 class="text-2xl font-bold text-primary text-center mb-6">Entrar na plataforma</h2>
+    <form th:action="@{/auth/login}" method="POST" class="space-y-4">
+      <div>
+        <label for="username" class="block text-sm font-medium text-primary">Usuário</label>
+        <input type="text" name="username" id="username"
+               class="mt-1 block w-full px-4 py-2 border border-primary/30 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent focus:border-accent"
+               placeholder="Digite seu usuário" required />
+      </div>
+      <div>
+        <label for="password" class="block text-sm font-medium text-primary">Senha</label>
+        <input type="password" name="password" id="password"
+               class="mt-1 block w-full px-4 py-2 border border-primary/30 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent focus:border-accent"
+               placeholder="••••••••" required />
+      </div>
+
+      <div class="my-4 bg-red-200 border border-red-800 text-red-800 font-medium p-2 rounded-md" th:if="${param.error}">Login inválido</div>
+
+      <div class="my-4 bg-green-200 border border-green-800 text-green-800 font-medium p-2 rounded-md" th:if="${param.logout}">
+        Logout efetuado com sucesso
+      </div>
+
+      <button type="submit"
+              class="w-full bg-accent text-white py-2 px-4 rounded-lg hover:bg-accent-dark transition">
+        Entrar
+      </button>
+    </form>
+    <p class="text-sm text-center text-primary mt-4">Esqueceu a senha? <a th:href="@{/auth/register}" class="text-accent hover:underline">Clique aqui</a></p>
+  </div>
+</body>
+</html>

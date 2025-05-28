@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Farmed - Início</title>
+    <link rel="icon" type="image/png" th:href="@{/images/LogoFarmed.png}" />
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style type="text/tailwindcss">
+        * {
+            font-family: Raleway, sans-serif;
+        }
+
+        @theme {
+            --color-primary-50: #8ADCFF;
+            --color-primary: #3D9AC2;
+            --color-accent: #FF6B48;
+            --color-accent-hover: #CF3915;
+        }
+    </style>
+</head>
+<body class="bg-surface-50">
+    <nav class="top-0 sticky py-2 px-4 bg-primary-50 flex items-center justify-between">
+        <h1 class="text-6xl font-black text-primary">
+            Far<span class="text-accent">med</span>
+        </h1>
+        <a class="text-xl font-medium select-none cursor-pointer hover:text-accent" th:href="@{/auth/login}">
+            Área Administrativa
+        </a>
+    </nav>
+    <section id="hero" class="flex mb-6">
+        <img 
+            th:src="@{/images/pharmacy.png}"
+            alt="Imagem de uma farmácia"
+            class="w-1/2"
+        />
+        <div class="flex-1 w-1/2 p-6 flex flex-col gap-8 items-center justify-center bg-slate-200">
+            <h2 class="text-3xl font-bold text-accent">Sua farmácia online com entrega rápida e segura.</h2>
+            <p class="text-xl">
+                Compre medicamentos e equipamentos de saúde para sua empresa.<br> 
+                Receba no mesmo dia, com toda a confiança que você merece.
+            </p>
+            <footer>
+                <button class="bg-accent text-white rounded px-4 py-2 cursor-pointer text-xl hover:bg-accent-hover">
+                    Ver Produtos
+                </button>
+            </footer>
+        </div>
+    </section>
+    <section>
+        <h2 class="text-2xl font-bold text-primary text-center">Categorias em Destaque</h2>
+    </section>
+    <section>
+        <h2 class="text-2xl font-bold text-primary text-center">Medicamentos em Destaque</h2>
+    </section>
+</body>
+</html>
