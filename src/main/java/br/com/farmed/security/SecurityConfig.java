@@ -24,7 +24,7 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         return http
                 .csrf(csrf -> csrf.disable())
-                .authorizeHttpRequests(auth -> auth.requestMatchers("/", "/auth/register").permitAll()
+                .authorizeHttpRequests(auth -> auth.requestMatchers("/", "/auth/**").permitAll()
                         .requestMatchers(
                                 "/images/**")
                         .permitAll()
@@ -32,7 +32,8 @@ public class SecurityConfig {
                 .formLogin(form -> form.loginPage("/auth/login")
                         .defaultSuccessUrl("/panel", true)
                         .permitAll())
-                .logout(logout -> logout.logoutSuccessUrl("/login?logout").permitAll())
+                .logout(logout -> logout
+                        .logoutSuccessUrl("/auth/login?logout").permitAll())
                 .userDetailsService(userDetailsService)
                 .build();
     }

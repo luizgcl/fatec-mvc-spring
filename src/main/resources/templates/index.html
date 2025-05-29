@@ -12,8 +12,16 @@
             <span>Far<span class="text-accent">med</span></span>
         </h1>
         <a class="bg-accent text-white rounded-full px-6 py-2 text-lg md:text-xl font-semibold shadow-md hover:bg-accent-hover transition-all duration-200 transform hover:scale-105 select-none cursor-pointer"
-            th:href="@{/auth/login}">
+            th:unless="${isLogged}"
+            th:href="@{/auth/login}"
+            >
             Entrar
+        </a>
+        <a class="bg-accent text-white rounded-full px-6 py-2 text-lg md:text-xl font-semibold shadow-md hover:bg-accent-hover transition-all duration-200 transform hover:scale-105 select-none cursor-pointer"
+            th:if="${isLogged}"
+            th:href="@{/logout}"
+            >
+            Sair
         </a>
     </nav>
     <section id="hero"
