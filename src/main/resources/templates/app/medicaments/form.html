@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/head :: head (pageTitle='Novo Medicamento')}">
+</head>
+<body class="bg-primary/10 flex items-center justify-center min-h-screen">
+    <div class="bg-white p-8 rounded-2xl shadow-xl w-full max-w-2xl border border-primary/20">
+        <h2 class="text-2xl font-bold text-primary text-center mb-6"
+            th:text="${medicament.idProduct} != null ? 'Editar Medicamento' : 'Novo Medicamento'"></h2>
+        <form method="post" th:action="@{/medicamentos/salvar}" th:object="${medicament}" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <input type="hidden" th:field="*{idProduct}" />
+            <div class="col-span-2">
+                <label for="name" class="block text-sm font-medium text-primary mb-1">Nome do Medicamento</label>
+                <input th:field="*{nameProduct}" id="name"
+                    class="mt-1 block w-full px-4 py-2 border border-primary/30 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent focus:border-accent"
+                    placeholder="Digite o nome do medicamento" required />
+            </div>
+            <div class="space-y-4">
+                <div>
+                    <label for="activeIngredientMedicament" class="block text-sm font-medium text-primary mb-1">Princípio Ativo</label>
+                    <input th:field="*{activeIngredientMedicament}" id="activeIngredientMedicament"
+                        class="mt-1 block w-full px-4 py-2 border border-primary/30 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent focus:border-accent"
+                        placeholder="Digite o nome do medicamento" required />
+                </div>
+                <div>
+                    <label for="dosageMedicament" class="block text-sm font-medium text-primary mb-1">Dosagem</label>
+                    <input th:field="*{dosageMedicament}" id="dosageMedicament"
+                        class="mt-1 block w-full px-4 py-2 border border-primary/30 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent focus:border-accent"
+                        placeholder="Digite o nome do medicamento" required />
+                </div>
+                <div>
+                    <label for="presentationMedicament" class="block text-sm font-medium text-primary mb-1">Apresentação</label>
+                    <input th:field="*{presentationMedicament}" id="presentationMedicament"
+                        class="mt-1 block w-full px-4 py-2 border border-primary/30 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent focus:border-accent"
+                        placeholder="Digite o nome do medicamento" required />
+                </div>
+                <div>
+                    <label for="skuProduct" class="block text-sm font-medium text-primary mb-1">SKU</label>
+                    <input th:field="*{skuProduct}" id="skuProduct"
+                        class="mt-1 block w-full px-4 py-2 border border-primary/30 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent focus:border-accent"
+                        placeholder="Digite o SKU" />
+                </div>
+            </div>
+            <div class="space-y-4">
+                <div>
+                    <label for="category" class="block text-sm font-medium text-primary mb-1">Categoria</label>
+                    <select th:field="*{category}" id="category"
+                        class="mt-1 block w-full px-4 py-2 border border-primary/30 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent focus:border-accent bg-white">
+                        <option value="" disabled selected>Selecione uma categoria</option>
+                        <option th:each="category : ${categories}"
+                                th:value="${category.idCategory}"
+                                th:text="${category.nameCategory}">
+                        </option>
+                    </select>
+                </div>
+                <div>
+                    <label for="tussCodeProduct" class="block text-sm font-medium text-primary mb-1">Código TUSS</label>
+                    <input th:field="*{tussCodeProduct}" id="tussCodeProduct"
+                        class="mt-1 block w-full px-4 py-2 border border-primary/30 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent focus:border-accent"
+                        placeholder="Informe o TUSS" />
+                </div>
+                <div>
+                    <label for="priceProduct" class="block text-sm font-medium text-primary mb-1">Valor de Venda</label>
+                    <input th:field="*{priceProduct}" id="priceProduct"
+                        class="mt-1 block w-full px-4 py-2 border border-primary/30 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent focus:border-accent"
+                        placeholder="Informe o valor de venda" />
+                </div>
+                <div>
+                    <label for="costProduct" class="block text-sm font-medium text-primary mb-1">Custo</label>
+                    <input th:field="*{costProduct}" id="costProduct"
+                        class="mt-1 block w-full px-4 py-2 border border-primary/30 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent focus:border-accent"
+                        placeholder="Informe o valor de custo" />
+                </div>
+            </div>
+            <div class="md:col-span-2 flex flex-col gap-2">
+                <button type="submit"
+                    class="w-full bg-accent text-white py-2 px-4 rounded-lg hover:bg-accent-dark transition">
+                    Salvar
+                </button>
+                <div class="text-center mt-2">
+                    <a th:href="@{/medicamentos}" class="text-primary hover:underline text-sm">Voltar para lista</a>
+                </div>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

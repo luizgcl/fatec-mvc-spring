@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/head :: head (pageTitle='Nova Categoria')}">
+</head>
+<body class="bg-primary/10 flex items-center justify-center min-h-screen">
+  <div class="bg-white p-8 rounded-2xl shadow-xl w-full max-w-md border border-primary/20">
+    <h2 class="text-2xl font-bold text-primary text-center mb-6" th:text="${category.idCategory} != null ? 'Editar Categoria' : 'Nova Categoria'"></h2>
+    <form method="post" th:action="@{/categorias/salvar}" th:object="${category}" class="space-y-4">
+      <input type="hidden" th:field="*{idCategory}" />
+      <div>
+        <label for="nameCategory" class="block text-sm font-medium text-primary mb-1">Nome da Categoria</label>
+        <input th:field="*{nameCategory}" id="nameCategory"
+               class="mt-1 block w-full px-4 py-2 border border-primary/30 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent focus:border-accent"
+               placeholder="Digite o nome da categoria" required />
+      </div>
+      <button type="submit"
+              class="w-full bg-accent text-white py-2 px-4 rounded-lg hover:bg-accent-dark transition">
+        Salvar
+      </button>
+      <div class="text-center mt-2">
+        <a th:href="@{/categorias}" class="text-primary hover:underline text-sm">Voltar para lista</a>
+      </div>
+    </form>
+  </div>
+</body>
+</html>

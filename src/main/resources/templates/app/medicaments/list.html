@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="~{fragments/head :: head (pageTitle='Medicamentos')}">
+</head>
+
+<body class="bg-primary/10 min-h-screen flex items-center justify-center">
+    <div class="bg-white p-8 rounded-2xl shadow-xl w-full max-w-6xl border border-primary/20">
+        <div class="flex items-center justify-between mb-6">
+            <h2 class="text-2xl font-bold text-primary">Medicamentos</h2>
+            <div class="flex items-center gap-2">
+                <a th:href="@{/panel}" class="text-primary hover:underline text-sm">Voltar para o Painel</a>
+                <a th:href="@{/medicamentos/criar}"
+                    class="bg-accent text-white px-4 py-2 rounded-lg hover:bg-accent-dark transition text-sm font-medium">
+                    Novo Medicamento
+                </a>
+            </div>
+        </div>
+        <div class="overflow-x-auto">
+            <table class="min-w-full divide-y divide-primary/20">
+                <thead>
+                    <tr class="bg-primary/5">
+                        <th class="px-4 py-2 text-left text-primary font-semibold">Nome</th>
+                        <th class="px-4 py-2 text-left text-primary font-semibold">Princípio Ativo</th>
+                        <th class="px-4 py-2 text-left text-primary font-semibold">Dosagem</th>
+                        <th class="px-4 py-2 text-left text-primary font-semibold">Apresentação</th>
+                        <th class="px-4 py-2 text-left text-primary font-semibold">SKU</th>
+                        <th class="px-4 py-2 text-left text-primary font-semibold">Categoria</th>
+                        <th class="px-4 py-2 text-left text-primary font-semibold">Valor de Venda</th>
+                        <th class="px-4 py-2 text-left text-primary font-semibold">Custo</th>
+                        <th class="px-4 py-2 text-left text-primary font-semibold">Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="medicament : ${medicaments}" class="hover:bg-primary/5 transition">
+                        <td class="px-4 py-2" th:text="${medicament.nameProduct}"></td>
+                        <td class="px-4 py-2" th:text="${medicament.activeIngredientMedicament}"></td>
+                        <td class="px-4 py-2" th:text="${medicament.dosageMedicament}"></td>
+                        <td class="px-4 py-2" th:text="${medicament.presentationMedicament}"></td>
+                        <td class="px-4 py-2" th:text="${medicament.skuProduct}"></td>
+                        <td class="px-4 py-2"
+                            th:text="${medicament.category != null ? medicament.category.nameCategory : '-'}"></td>
+                        <td class="px-4 py-2"
+                            th:text="${#numbers.formatDecimal(medicament.priceProduct, 1, 'COMMA', 2, 'POINT')}"></td>
+                        <td class="px-4 py-2"
+                            th:text="${#numbers.formatDecimal(medicament.costProduct, 1, 'COMMA', 2, 'POINT')}"></td>
+                        <td class="px-4 py-2">
+                            <a th:href="@{'/medicamentos/editar/' + ${medicament.slugProduct}}"
+                                class="text-accent hover:underline mr-2">Editar</a>
+                            <a th:href="@{'/medicamentos/excluir/' + ${medicament.slugProduct}}"
+                                class="text-red-600 hover:underline">Excluir</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+
+</html>

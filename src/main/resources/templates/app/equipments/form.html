@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="~{fragments/head :: head (pageTitle='Novo Equipamento')}">
+</head>
+<body class="bg-primary/10 flex items-center justify-center min-h-screen">
+    <div class="bg-white p-8 rounded-2xl shadow-xl w-full max-w-2xl border border-primary/20">
+        <h2 class="text-2xl font-bold text-primary text-center mb-6"
+            th:text="${equipment.idProduct} != null ? 'Editar Equipamento' : 'Novo Equipamento'"></h2>
+        <form method="post" th:action="@{/equipamentos/salvar}" th:object="${equipment}" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <input type="hidden" th:field="*{idProduct}" />
+            <div class="space-y-4">
+                <div>
+                    <label for="name" class="block text-sm font-medium text-primary mb-1">Nome do Equipamento</label>
+                    <input th:field="*{nameProduct}" id="name"
+                        class="mt-1 block w-full px-4 py-2 border border-primary/30 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent focus:border-accent"
+                        placeholder="Digite o nome do equipamento" required />
+                </div>
+                <div>
+                    <label for="skuProduct" class="block text-sm font-medium text-primary mb-1">SKU do Equipamento</label>
+                    <input th:field="*{skuProduct}" id="skuProduct"
+                        class="mt-1 block w-full px-4 py-2 border border-primary/30 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent focus:border-accent"
+                        placeholder="Digite o SKU" />
+                </div>
+                <div>
+                    <label for="category" class="block text-sm font-medium text-primary mb-1">Categoria</label>
+                    <select th:field="*{category}" id="category"
+                        class="mt-1 block w-full px-4 py-2 border border-primary/30 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent focus:border-accent bg-white">
+                        <option value="" disabled selected>Selecione uma categoria</option>
+                        <option th:each="category : ${categories}"
+                                th:value="${category.idCategory}"
+                                th:text="${category.nameCategory}">
+                        </option>
+                    </select>
+                </div>
+                <div>
+                    <label for="tussCodeProduct" class="block text-sm font-medium text-primary mb-1">Código TUSS</label>
+                    <input th:field="*{tussCodeProduct}" id="tussCodeProduct"
+                        class="mt-1 block w-full px-4 py-2 border border-primary/30 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent focus:border-accent"
+                        placeholder="Informe o TUSS" />
+                </div>
+            </div>
+            <div class="space-y-4">
+                <div>
+                    <label for="priceProduct" class="block text-sm font-medium text-primary mb-1">Valor de Venda</label>
+                    <input th:field="*{priceProduct}" id="priceProduct"
+                        class="mt-1 block w-full px-4 py-2 border border-primary/30 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent focus:border-accent"
+                        placeholder="Informe o valor de venda" />
+                </div>
+                <div>
+                    <label for="costProduct" class="block text-sm font-medium text-primary mb-1">Custo</label>
+                    <input th:field="*{costProduct}" id="costProduct"
+                        class="mt-1 block w-full px-4 py-2 border border-primary/30 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent focus:border-accent"
+                        placeholder="Informe o valor de custo" />
+                </div>
+                <div>
+                    <label for="isLocatedEquipment" class="block text-sm font-medium text-primary mb-1">Locação de Equipamento</label>
+                    <div class="flex items-center">
+                        <input type="checkbox" th:field="*{isLocatedEquipment}" id="isLocatedEquipment"
+                            class="h-5 w-5 text-accent focus:ring-accent border-primary/30 rounded" />
+                        <label for="isLocatedEquipment" class="ml-2 text-primary">Este equipamento é para locação</label>
+                    </div>
+                </div>
+                <div th:if="*{isLocatedEquipment}">
+                    <label for="locationPrice" class="block text-sm font-medium text-primary mb-1">Preço de Locação</label>
+                    <input th:field="*{locationPrice}" id="locationPrice" type="number" step="0.01" min="0"
+                        class="mt-1 block w-full px-4 py-2 border border-primary/30 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent focus:border-accent"
+                        placeholder="Informe o preço de locação" />
+                </div>
+            </div>
+            <div class="md:col-span-2 flex flex-col gap-2">
+                <button type="submit"
+                    class="w-full bg-accent text-white py-2 px-4 rounded-lg hover:bg-accent-dark transition">
+                    Salvar
+                </button>
+                <div class="text-center mt-2">
+                    <a th:href="@{/equipamentos}" class="text-primary hover:underline text-sm">Voltar para lista</a>
+                </div>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

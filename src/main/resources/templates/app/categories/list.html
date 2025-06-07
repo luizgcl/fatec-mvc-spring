@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="~{fragments/head :: head (pageTitle='Categorias')}">
+</head>
+
+<body class="bg-primary/10 min-h-screen flex items-center justify-center">
+    <div class="bg-white p-8 rounded-2xl shadow-xl w-full max-w-2xl border border-primary/20">
+        <div class="flex items-center justify-between mb-6">
+            <h2 class="text-2xl font-bold text-primary">Categorias</h2>
+            <div class="flex items-center gap-2">
+                <a th:href="@{/panel}" class="text-primary hover:underline text-sm">Voltar para o Painel</a>
+                <a th:href="@{/categorias/criar}"
+                    class="bg-accent text-white px-4 py-2 rounded-lg hover:bg-accent-dark transition text-sm font-medium">
+                    Nova Categoria
+                </a>
+            </div>
+        </div>
+        <div class="overflow-x-auto">
+            <table class="min-w-full divide-y divide-primary/20">
+                <thead>
+                    <tr class="bg-primary/5">
+                        <th class="px-4 py-2 text-left text-primary font-semibold">Categoria</th>
+                        <th class="px-4 py-2 text-left text-primary font-semibold">Slug</th>
+                        <th class="px-4 py-2 text-left text-primary font-semibold">Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="category : ${categories}" class="hover:bg-primary/5 transition">
+                        <td class="px-4 py-2" th:text="${category.nameCategory}"></td>
+                        <td class="px-4 py-2" th:text="${category.slugCategory}"></td>
+                        <td class="px-4 py-2">
+                            <a th:href="@{'/categorias/editar/' + ${category.slugCategory}}"
+                                class="text-accent hover:underline mr-2">Editar</a>
+                            <a th:href="@{'/categorias/deletar/' + ${category.slugCategory}}"
+                                class="text-red-600 hover:underline">Excluir</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+
+</html>
